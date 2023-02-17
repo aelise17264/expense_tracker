@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct expense_trackerApp: App {
+    @StateObject var transactionListVM = TransactionListViewModel()
+    // will follow the lifecycle of the app
+    // swiftui will reserve memory for it in the environment
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(transactionListVM)
         }
     }
 }
